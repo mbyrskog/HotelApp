@@ -5,9 +5,10 @@ import { Reservation } from '../models/reservation';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-reservation-form',
-  templateUrl: './reservation-form.component.html',
-  styleUrls: ['./reservation-form.component.css'],
+    selector: 'app-reservation-form',
+    templateUrl: './reservation-form.component.html',
+    styleUrls: ['./reservation-form.component.css'],
+    standalone: false
 })
 export class ReservationFormComponent implements OnInit {
   reservationForm: FormGroup = new FormGroup({});

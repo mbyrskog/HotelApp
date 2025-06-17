@@ -15,7 +15,6 @@
           "options": {
             "outputPath": "dist/hotel-app",
             "index": "src/index.html",
-            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -27,14 +26,15 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "main": "src/main.ts"
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "600kb",
                   "maximumError": "1mb"
                 },
                 {
@@ -46,9 +46,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -58,12 +56,17 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": 
+          {
+            "port": 3000, 
+            "open": true
+          },
           "configurations": {
             "production": {
-              "browserTarget": "hotel-app:build:production"
+              "buildTarget": "hotel-app:build:production"
             },
             "development": {
-              "browserTarget": "hotel-app:build:development"
+              "buildTarget": "hotel-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hotel-app:build"
+            "buildTarget": "hotel-app:build"
           }
         },
         "test": {
